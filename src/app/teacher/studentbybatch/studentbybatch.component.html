@@ -1,0 +1,37 @@
+<ngx-spinner></ngx-spinner>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title"> Student's List</h4>
+                </div>
+                <div class="col-md-6 pr-md-1">
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive ps">
+                        <table class="table text-light">
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>RollNo</th>
+                                <th>Qualification</th>
+                                <th>City</th>
+                                <th>Gender</th>
+                            </tr>
+                            <tr *ngFor="let bat of batch">
+                                <td>{{ bat['studentId'] ? bat['studentId']['student_name'] : ''}}</td>
+                                <td>{{ bat['studentId'] ? bat['studentId']['email'] : ''}}</td>
+                                <td>{{ bat['studentId'] ? bat['studentId']['phone_no'] : ''}}</td>
+                                <td>{{ bat['studentId'] ? bat['studentId']['roll_no'] : ''}}</td>
+                                <td>{{ bat['studentId'] ? bat['studentId']['qualification'] : ''}}</td>
+                                <td>{{ bat['studentId'] ? bat['studentId']['city'] : ''}}</td>
+                                <td>{{ bat['studentId'] ? bat['studentId']['gender'] : ''}}</td>
+                             </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>

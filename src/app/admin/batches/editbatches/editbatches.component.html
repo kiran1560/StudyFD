@@ -1,0 +1,64 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Update Batch
+                    </h5>
+                    <div class="col-md-6 pr-md-1">
+                        <button type="submit" class="btn btn-primary managebtn" routerLink="/layout/listbatches">Manage Batch</button>
+                    </div>
+                </div>
+                <form [formGroup]="editbatches" (submit)="submit()">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    <label>Course</label>
+                                    <!-- <input type="text" class="form-control" placeholder="Course ID"
+                                        formControlName="course_id"> -->
+                                    <ng-select formControlName="course_id">
+                                        <ng-option *ngFor="let course of courses" [value]="course['_id']">
+                                            {{course['course_name']}}</ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    <label>Teacher</label>
+                                    <!-- <input type="text" class="form-control" placeholder="Teacher ID"
+                                        formControlName="teacher_id">-->
+                                    <ng-select formControlName="teacher_id">
+                                        <ng-option *ngFor="let teacher of teachers" [value]="teacher['_id']">
+                                            {{teacher['teacher_name']}}</ng-option>
+                                    </ng-select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 pr-md-1">
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="time" class="form-control" placeholder="Time " formControlName="time">
+                                </div>
+                            </div>
+                            <div class="col-md-6 pl-md-1">
+                                <div class="form-group">
+                                    <label>Starting Date</label>
+                                    <input type="date" class="form-control" placeholder="Starting Date"
+                                        formControlName="starting_date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

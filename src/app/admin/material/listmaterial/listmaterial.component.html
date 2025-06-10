@@ -1,0 +1,51 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title"> Material Table</h4>
+        </div>
+        <div class="col-md-6 pr-md-1">
+          <button type="submit" class="btn btn-primary addbtn" routerLink="/teacherlayout/addmaterial">Add Material</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive ">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                    Course Name
+                  </th>
+                  <th>
+                    Batch Time
+                  </th>
+                  <th>
+                      Title
+                  </th>
+                  <th>
+                      Description
+                  </th>
+                  <th>
+                      Material
+                  </th>
+                  <th>
+                    Edit
+                  </th>
+                </tr>
+              </thead>
+              <tr *ngFor="let material of materials">
+                <td>{{material['course_id'] ? material['course_id']['course_name'] : ''}}</td>
+                <td>{{material['batch_id'] ? material['batch_id']['time'] : ''}}</td>
+                <td>{{material['title']}}</td>
+                <td>{{material['description']}}</td>
+                <td><a [href]="getsanitizer(material['upload_file'])" target="_blank">View</a></td>
+                <td>
+                  <a [routerLink]="['/teacherlayout/editmaterial',material['_id']]"><i class="fa fa-edit text-success"></i></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,63 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title">All Student Assignments Table</h4>
+                </div>
+                <div class="col-md-6 pr-md-1">
+                    <!-- <button type="submit" class="btn btn-primary addbtn" routerLink="/layout/addbatches">Add Batches</button> -->
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive ps">
+                        <table class="table tablesorter " id="">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Batch</th>
+                                    <th>Title</th>
+                                    <th>Marks</th>
+                                    <th>Description</th>
+                                    <th *ngIf="stu.isEvaluated">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ stu.studentId ? stu.studentId.student_name : '' }} {{ stu.studentId ?
+                                        '-'+stu.studentId.email : '' }}</td>
+                                    <td>{{ stu.batchId ? stu.batchId.time : '' }}</td>
+                                    <td>{{ stu.assignmentId ? stu.assignmentId.title : '' }}</td>
+                                    <td>{{ stu.isEvaluated ? stu.marksObtained : '-' }}/{{ stu.assignmentId ? stu.assignmentId.marks : '' }}
+                                    </td>
+                                    <td>{{ stu.assignmentId ? stu.assignmentId.description : '' }}</td>
+                                    <td *ngIf="stu.isEvaluated">{{ stu.remarks}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div *ngIf="stu.isAttempted && !stu.isEvaluated">
+                            <form [formGroup]="evalform" (submit)="submit()" >
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 pr-md-1">
+                                            <div class="form-group">
+                                                <label>Marks Obtained</label>
+                                                <input type="number" min="0" class="form-control" placeholder="Marks Obtained" formControlName="marksObtained">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pr-md-1">
+                                            <div class="form-group">
+                                                <label>Remarks</label>
+                                                <input type="text" class="form-control" placeholder="Remarks" formControlName="remarks">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

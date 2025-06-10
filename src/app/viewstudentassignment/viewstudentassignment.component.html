@@ -1,0 +1,39 @@
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title">Assignment Table</h4>
+          </div>
+          <div class="col-md-6 pr-md-1">
+  
+          </div>
+          <div class="card-body">
+            <div class="table-responsive ps">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <th>Title</th>
+                  <th>Material</th>
+                  <th>Description</th>
+                  <th>Due Date</th>
+                  <th>Marks</th>
+                  <th>Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of alldata">
+                    <td>{{ data['assignmentId'] ? data['assignmentId']['title'] : ''}}</td>
+                    <td><a [href]="getFile(data['assignmentId']['upload_file'])" target="_blank" *ngIf="data['assignmentId']['upload_file']">View Material</a></td>
+                    <td>{{ data['assignmentId'] ? data['assignmentId']['description'] : ''}}</td>
+                    <td>{{ data['assignmentId'] ? getDate(data['assignmentId']['due_date']) : ''}}</td>
+                    <td>{{ data['marksObtained'] ? data['marksObtained'] : '-' }} / {{ data['assignmentId'] ? data['assignmentId']['marks'] : ''}}</td>
+                    <td>
+                        <a [routerLink]="['/studentlayout/attemptassignment',data['_id']]" *ngIf="!data['isAttempted']" class="btn btn-info">Upload Answer</a>
+                        <span *ngIf="data['isAttempted']" class="badge badge-success">Already Attempted</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,62 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="title">Edit Assign Batch</h5>
+                        </div>
+                        <div class="col-md-6 pr-md-1">
+                            <button type="submit" class="btn btn-primary managebtn" routerLink="/layout/listassignbatch" style="float:right">Manage
+                                Assigned Batch</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="forms-sample" [formGroup]="addbatch" (submit)="submit()">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 pr-md-1">
+                                <div class="form-group">
+                                    <label>Course Name</label>
+                                    <ng-select formControlName="courseId">
+                                        <ng-option *ngFor="let course of allcourses" [value]="course['_id']">
+                                            {{course['course_name']}}
+                                        </ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Batch Name</label>
+                                    <!-- <input type="text" class="form-control" placeholder="Batch Name"
+                                        formControlName="batch_id">-->
+                                    <ng-select formControlName="batchId">
+                                        <ng-option *ngFor="let batch of batches" [value]="batch['_id']">
+                                            {{ getdate(batch['starting_date']) }} at {{batch['time']}}</ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 pr-md-1">
+                                <div class="form-group">
+                                    <label>Student Name</label>
+                                    <ng-select formControlName="studentId">
+                                        <ng-option *ngFor="let stu of students" [value]="stu['_id']">
+                                            {{stu['student_name']}}
+                                        </ng-option>
+                                    </ng-select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<ngx-spinner></ngx-spinner>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title"> Batch Table</h4>
+                </div>
+                <div class="col-md-6 pr-md-1">
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive ps">
+                        <div class="row">
+                            <div class="card" style="width: 18rem;" *ngFor="let bat of batch">
+                                <div class="card-header">
+                                    <!-- Featured -->
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item text-dark text-center">{{ bat['courseId'] ? bat['courseId']['course_name'] : '' }} <br> at <br> {{ bat['batchId'] ? bat['batchId']['time'] : '' }}</li>
+                                    <li class="list-group-item text-dark px-5" *ngIf="bat['batchId']"><a [routerLink]="['/studentlayout/viewstudentmaterial',bat['batchId']['_id']]">View Material</a></li>
+                                    <li class="list-group-item text-dark px-5" *ngIf="bat['batchId']"><a [routerLink]="['/studentlayout/viewstudentassignment',bat['batchId']['_id']]">View Assignment</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

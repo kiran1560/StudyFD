@@ -1,0 +1,59 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title"> Assignment Table</h4>
+        </div>
+        <div class="col-md-6 pr-md-1">
+          <button type="submit" class="btn btn-primary addbtn" routerLink="/teacherlayout/addassignment">Add Assignment</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive ps">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                    Course Name
+                  </th>
+                  <th>
+                    Batch Name
+                  </th>
+                  <th>
+                      Title
+                  </th>
+
+                  <th>
+                      Description
+                  </th>
+                  <th>
+                    Assignment
+                  </th>
+                  <th>Due Date</th>
+                  <th>Marks</th>
+                  <th>
+                    Edit
+                  </th>
+                </tr>
+              </thead>
+              <tr *ngFor="let assignment of allassignment">
+                <td>{{assignment['course_id'] ? assignment['course_id']['course_name'] : ''}}</td>
+                <td>{{assignment['batch_id']  ? assignment['batch_id']['time'] : ''}}</td>
+                <td>{{assignment['title']}}</td>
+                <td>{{assignment['description']}}</td>
+                <td>
+                  <a [href]="getsanitizer(assignment['upload_file'])" target="_blank">View</a>
+                </td>
+                <td>{{getDate(assignment['due_date'])}}</td>
+                <td>{{assignment['marks']}}</td>
+                
+                <td>
+                  <a [routerLink]="['/teacherlayout/editassignment',assignment['_id']]"><i class="fa fa-edit text-success"></i></a>
+                </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>

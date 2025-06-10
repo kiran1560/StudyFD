@@ -1,0 +1,57 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title"> Batch Table</h4>
+        </div>
+        <div class="col-md-6 pr-md-1">
+          <button type="submit" class="btn btn-primary addbtn" routerLink="/layout/addbatches">Add Batches</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive ps">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>
+                    Course
+                  </th>
+                  <th>
+                    Teacher
+                  </th>
+                  <th>
+                    Time
+                  </th>
+                  <th>
+                    Starting Date
+                  </th>
+                  <th>
+                    Edit
+                  </th>
+                  <!-- <th>
+                    Delete
+                  </th> -->
+                </tr>
+              </thead>
+
+              <tr *ngFor="let batches of batch">
+                <td>{{batches.course_id ? batches.course_id.course_name:''}}</td>
+                <td>{{batches.teacher_id ? batches.teacher_id.teacher_name:''}}</td>
+                <td>{{batches.time}}</td>
+                <td>{{getDate(batches.starting_date)}}</td>
+                <!-- <td>
+                  <a [routerLink]="['/layout/editbatches',batches._id]"><i class="fa fa-edit text-success"></i></a>
+                </td> -->
+                <td>
+                  <a [routerLink]="['/layout/editbatches',batches._id]"><i class="fa fa-edit text-success"></i></a>
+                <!-- <td>
+                  <i class="fa fa-trash text-success" (click)="delete(batches['_id'])"></i>
+                </td> -->
+              </tr>
+
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>

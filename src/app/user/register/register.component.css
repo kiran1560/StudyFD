@@ -1,0 +1,12 @@
+.content{
+    background-image: url('../../../assets/assets/img/laptop.webp');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    background-attachment: fixed;
+    }
+
+.card{
+    margin-left:25%; 
+    margin-top: 5%;
+  
+}

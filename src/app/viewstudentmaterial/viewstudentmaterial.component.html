@@ -1,0 +1,30 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card ">
+        <div class="card-header">
+          <h4 class="card-title">Material Table</h4>
+        </div>
+        <div class="col-md-6 pr-md-1">
+
+        </div>
+        <div class="card-body">
+          <div class="table-responsive ps">
+            <table class="table tablesorter " id="">
+              <thead class=" text-primary">
+                <th>Title</th>
+                <th>Material</th>
+                <th>Description</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of alldata">
+                  <td>{{ data['title']}}</td>
+                  <td><a [href]="getFile(data['upload_file'])" target="_blank" *ngIf="data['upload_file']">View Material</a></td>
+                  <td>{{ data['description']}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>

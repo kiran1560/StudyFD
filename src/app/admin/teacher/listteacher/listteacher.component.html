@@ -1,0 +1,67 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title"> Teacher Table</h4>
+          </div>
+          <div class="col-md-6 pr-md-1">
+            <button type="submit" class="btn btn-primary addbtn" routerLink="/layout/addteacher">Add Teacher</button>
+         </div> 
+          <div class="card-body">
+            <div class="table-responsive ps">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Teacher Name
+                    </th>
+                    <th>
+                      Email
+                    </th>
+                    
+                    <th>
+                        Phone No.
+                    </th>
+                    <th>
+                        Salary
+                    </th>
+                    <th>
+                        Qualification
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                      Edit
+                    </th>
+                  </tr>
+                </thead>
+
+                <tr *ngFor="let teacher of teachers">
+                  <td>{{teacher.teacher_name}}</td>
+                  <td>{{teacher.email}}</td>
+                  <td>{{teacher.phone_no}}</td>
+                  <td>{{teacher.salary}}</td>
+                  <td>{{teacher.qualification}}</td>
+                  <td>{{teacher.city}}</td>
+                  <td>{{teacher.gender}}</td>
+                  <td>
+                    <a [routerLink]="['/layout/editteacher',teacher._id]">
+                      <i class="fa fa-edit text-success"></i>
+                    </a>
+                  </td>
+                 
+                 </tr>
+               
+              </table>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  
