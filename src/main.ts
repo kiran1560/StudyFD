@@ -9,7 +9,7 @@ if (environment.production) {
 }
 
 export function getbaseurl() {
-  return "http://localhost:3001"
+  return environment.API_URL;
 }
 
 const provider = [
