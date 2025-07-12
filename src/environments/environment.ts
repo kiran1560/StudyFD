@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://studybd-production.up.railway.app'
+  API_URL: 'https://studybd.onrender.com/'
 };
 
 /*
